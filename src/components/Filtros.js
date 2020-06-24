@@ -1,17 +1,45 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const DivFilter = styled.div`
+    border: solid 1px black; 
+    justify-content: left;
+    min-width: 20%;
+    height: 95vh;
+    text-align: center;
+`
+
+const DivTeste = styled.div`
+    display: flex;
+    padding: 10px;
+`
+
+const InputProd = styled.input`
+width: 60%;
+height: 15px;
+margin: 0px 0px 0px 10px;
+`
+
 
 class Filtros extends React.Component{
     render(){
         return(
-            <div>
-                <h3>Filtros:</h3>
-                <p>Valor Mínimo:</p>
-                <input/>
-                <p>Valor Máximo:</p>
-                <input/>
-                <p>Busca Produto:</p>
-                <input/>
-            </div>
+            <DivFilter>
+                <h3>Filtros:</h3> 
+                <br/>
+                <DivTeste>
+                <span>Valor Mínimo:</span>
+                <InputProd type="Number"/>
+                </DivTeste>
+                <DivTeste>
+                <span>Valor Máximo:</span>
+                <InputProd type="Number"/>
+                </DivTeste>
+                <DivTeste>
+                <span>Busca Produto:</span>
+                <InputProd type="text"/>
+                </DivTeste>
+            </DivFilter>
         )
     }
 }

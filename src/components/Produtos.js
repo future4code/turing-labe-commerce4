@@ -1,4 +1,36 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const DivProdutos = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    
+    /* justify-items: center; */
+    /* align-self: center; */
+    /* margin-left: 200px; */
+    width:60%;
+`
+
+const DivQuant = styled.div`
+    display: flex;
+    justify-content: space-evenly;  
+    align-items:baseline;
+`
+
+const DivProd = styled.div`
+    margin: 16px;
+`
+
+const SelectStyled = styled.select`
+    height: 10%;
+`
+
+const DivTotal = styled.div`
+height: 95vh;
+`
+
+
 
 class Produtos extends React.Component{
     state = {
@@ -19,31 +51,28 @@ class Produtos extends React.Component{
         const mensagem = this.state.produtos.length
 
         const novosProdutos = this.state.produtos.map((produto)=>{
-            return (
-                    <div>
-                        
-                        <div key={produto.id}>
-                            <img src={produto.imagemProd}/>
-                            <p>{produto.nome}</p>
-                            <p>R$ {produto.valor}</p>
-                            <button>Adicionar ao Carrinho</button>
-                        </div>
-                    </div>
+            return (                      
+                    <DivProd key={produto.id}>
+                        <img src={produto.imagemProd}/>
+                        <p>{produto.nome}</p>
+                        <p>R$ {produto.valor}</p>
+                        <button>Adicionar ao Carrinho</button>
+                    </DivProd>
             )
         });
         return(
-            <div>
-                <div>
+            <DivTotal>
+                <DivQuant>
                     <p>Quantidade de produtos: {mensagem}</p>
-                    <select>
+                    <SelectStyled>
                         <option>Preço: Crescente</option>
                         <option>Preço: Decrescente</option>
-                    </select>
-                </div>
-                <div>
+                    </SelectStyled>
+                </DivQuant>
+                <DivProdutos>
                     {novosProdutos}
-                </div>
-            </div>
+                </DivProdutos>
+            </DivTotal>
             
            
         );

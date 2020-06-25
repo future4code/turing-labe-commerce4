@@ -7,11 +7,14 @@ const Cart = styled.div`
     width: 20%;
     height: 95vh;
 `
-    
 
 class Carrinho extends React.Component{
     render(){
-            
+    
+
+
+
+
         return(
             <Cart>
                 <h3>Carrinho:</h3>

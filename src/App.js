@@ -8,7 +8,7 @@ import styled from 'styled-components'
 
 const DivPai = styled.div`
 display: flex;
-justify-content: space-between;
+justify-content: space-around;
 height: 95vh;
 margin: 5px;
 width:100%;
@@ -32,21 +32,46 @@ bottom: 10px;
 right: 10px;
 `
 
+class App extends React.Component {
+  state = {
+    produtos: [
+    {id:1, nome: "Produto 1", valor: 100.0, imagemProd: "https://picsum.photos/200/200?ramdon=1"},
+    {id:2, nome: "Produto 2", valor: 200.0, imagemProd: "https://picsum.photos/200/200?ramdon=2"},
+    {id:3, nome: "Produto 3", valor: 300.0, imagemProd: "https://picsum.photos/200/200?ramdon=3"},
+    {id:4, nome: "Produto 4", valor: 400.0, imagemProd: "https://picsum.photos/200/200?ramdon=4"},
+    {id:5, nome: "Produto 5", valor: 500.0, imagemProd: "https://picsum.photos/200/200?ramdon=5"},
+    {id:6, nome: "Produto 6", valor: 600.0, imagemProd: "https://picsum.photos/200/200?ramdon=6"},
+    {id:7, nome: "Produto 7", valor: 700.0, imagemProd: "https://picsum.photos/200/200?ramdon=7"},
+    {id:8, nome: "Produto 8", valor: 800.0, imagemProd: "https://picsum.photos/200/200?ramdon=8"}
+    ],
+    carrinho:false
+}
 
+  renderizaCarrinho = ()=>{
+    this.setState({carrinho: !this.state.carrinho});
+  }
 
-function App() {
-
-  
-  return (
-    <DivPai className="App">
+  render(){
+    if(this.state.carrinho){
+      return <DivPai className="App">
       <Filtros />
-      <Produtos />
-      {/* <Carrinho /> */}
+      <Produtos onChange={this.ordem}/>
+      <Carrinho />
       <DivCar>
-        <FormactCar src={IconCompra}/>
+        <FormactCar src={IconCompra} onClick={this.renderizaCarrinho}/>
       </DivCar>
     </DivPai>
-  );
+    }
+    return (
+      <DivPai className="App">
+        <Filtros />
+        <Produtos />
+        <DivCar>
+          <FormactCar src={IconCompra} onClick={this.renderizaCarrinho}/>
+        </DivCar>
+      </DivPai>
+    );
+  }  
 }
 
 export default App;

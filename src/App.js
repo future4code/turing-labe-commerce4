@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import Produtos from './components/Produtos.js'
 import Carrinho from './components/Carrinho.js'
-import Filtros from './components/Filtros.js'
 import IconCompra from './Imagens/compra.png'
 import styled from 'styled-components'
 
@@ -44,8 +43,10 @@ class App extends React.Component {
     {id:7, nome: "Produto 7", valor: 700.0, imagemProd: "https://picsum.photos/200/200?ramdon=7"},
     {id:8, nome: "Produto 8", valor: 800.0, imagemProd: "https://picsum.photos/200/200?ramdon=8"}
     ],
-    carrinho:false
+    carrinho:false,
 }
+
+  mensagem = this.state.produtos.length
 
   renderizaCarrinho = ()=>{
     this.setState({carrinho: !this.state.carrinho});
@@ -54,8 +55,10 @@ class App extends React.Component {
   render(){
     if(this.state.carrinho){
       return <DivPai className="App">
-      <Filtros />
-      <Produtos onChange={this.ordem}/>
+      <Produtos onChange={this.ordem}
+                msg = {this.mensagem}
+                arrayProd = {this.state.produtos}
+                />
       <Carrinho />
       <DivCar>
         <FormactCar src={IconCompra} onClick={this.renderizaCarrinho}/>
@@ -64,8 +67,10 @@ class App extends React.Component {
     }
     return (
       <DivPai className="App">
-        <Filtros />
-        <Produtos />
+        <Produtos onChange={this.ordem}
+                msg = {this.mensagem}
+                arrayProd = {this.state.produtos}
+                />
         <DivCar>
           <FormactCar src={IconCompra} onClick={this.renderizaCarrinho}/>
         </DivCar>

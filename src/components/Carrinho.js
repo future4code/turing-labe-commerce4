@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Cart = styled.div`
     border: 1px solid black;
     text-align: left;
-    min-width: 20%;
+    width: 20%;
     height: 95vh;
 `
     

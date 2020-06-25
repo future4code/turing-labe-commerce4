@@ -20,7 +20,6 @@ height: 15px;
 margin: 0px 0px 0px 10px;
 `
 
-
 class Filtros extends React.Component{
     render(){
         return(

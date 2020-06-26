@@ -5,7 +5,8 @@ const Cart = styled.div`
     border: 1px solid black;
     text-align: left;
     width: 20%;
-    height: 95vh;
+    height: 100vh;
+    box-sizing: border-box;
 `
 
 class Carrinho extends React.Component{
@@ -19,6 +20,7 @@ class Carrinho extends React.Component{
             <Cart>
                 <h3>Carrinho:</h3>
                 <p>Total: R$</p>
+                {this.props.novoProduto}
             </Cart>
         )
     }
